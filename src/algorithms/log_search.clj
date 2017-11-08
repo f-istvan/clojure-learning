@@ -1,4 +1,4 @@
-(ns hello-world.core)
+(ns algorithms.log_search)
 
 (defn log-search
   [elements, elem-to-find]

@@ -1,5 +1,5 @@
-(ns hello-world.test.core
-  (:use [hello-world.core])
+(ns algorithms.test.log_search
+  (:use [algorithms.log_search])
   (:use [clojure.test]))
 
 (deftest nil-tests
