@@ -3,16 +3,17 @@
 
 (defn insert
   [l k]
-  (concat (filter #(< % k) l) [k] (filter #(> % k) l)))
+  (concat (filter #(<= % k) l) [k] (filter #(> % k) l)))
 
 (defn insertion-sort
   [input]
   (loop [i 0
          r input]
-    (println r)
+    (println i)
     (if (>= i (count input))
       r
       (recur (inc i)
              (concat
-              (insert (take (+ i 1) r) (nth r i))
+              (insert (take i r)
+                      (nth r i))
               (take-last (- (- (count input) i) 1) r))))))
