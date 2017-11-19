@@ -2,18 +2,23 @@
   (:use algorithms.insertion-sort)
   (:use clojure.test))
 
-(deftest init-test-1 (is (= (insertion-sort [] ) [])))
+(deftest identical-sorts
+  (testing "empty seq"
+    (is (= (isort []) []) ))
+  (testing "one length sequence"
+    (is (= (isort [1]) [1])))
+  (testing "only same elements"
+    (is (= (isort [0 0 0]) [0 0 0]))))
 
-(deftest init-test-2 (is (= (insertion-sort [2 2 1] ) [1 2 2])))
+(deftest duplicate-elements
+  (testing "Duplicates at the begining"
+    (is (= (isort [2 2 1]) [1 2 2])))
+  (testing "Duplicates in the middle"
+    (is (= (isort [5 2 2 6]) [2 2 5 6])))
+  (testing "Duplicates at the end"
+    (is (= (isort [8 3 3]) [3 3 8]))))
 
-(deftest init-test-3
-  (is (= (insertion-sort [5 3 4 2 1 1] ) [1 1 2 3 4 5])))
-
-(deftest init-test-4
-  (is (= (insertion-sort [0 0 0] ) [0 0 0])))
-
-(deftest init-test-5
-  (is (= (insertion-sort [9] ) [9])))
-
-(deftest init-test-6
-  (is (= (insertion-sort [1 -1 0 -2 -4 5 7] ) [-4 -2 -1 0 1 5 7])))
+(deftest long-sequence
+  (testing "Long sequence including negatives")
+  (let [i 300]
+    (is (= (isort (shuffle (range (- i) i))) (range (- i) i)))))

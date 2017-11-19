@@ -4,7 +4,8 @@
   [l k]
   (concat (filter #(<= % k) l) [k] (filter #(> % k) l)))
 
-(defn insertion-sort
+(defn isort
+  "An insertion sort implementation that keeps track of the whole (partially sorted) input sequence in each iteration"
   [input]
   (loop [i 1
          result input]
