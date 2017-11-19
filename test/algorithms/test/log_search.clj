@@ -1,5 +1,5 @@
-(ns algorithms.test.log_search
-  (:use [algorithms.log_search])
+(ns algorithms.test.log-search
+  (:use [algorithms.log-search])
   (:use [clojure.test]))
 
 (deftest nil-tests

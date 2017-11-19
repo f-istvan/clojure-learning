@@ -1,4 +1,4 @@
-(ns algorithms.log_search)
+(ns algorithms.log-search)
 
 (defn log-search
   [elements, elem-to-find]
